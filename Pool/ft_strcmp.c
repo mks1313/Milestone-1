@@ -1,25 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmarinov <mmarinov@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/10 14:47:39 by mmarinov          #+#    #+#             */
-/*   Updated: 2024/05/13 13:15:17 by mmarinov         ###   ########.fr       */
+/*   Created: 2024/05/08 15:52:17 by mmarinov          #+#    #+#             */
+/*   Updated: 2024/05/08 17:58:06 by mmarinov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-
-void	ft_putstr(char *str)
+int	ft_strcmp(char *s1, char *s2)
 {
-	int	i;
-
-	i = 0;
-	while (str[i] != '\0')
+	while (*s1 != '\0' && *s2 != '\0')
 	{
-		write(1, &str[i], 1);
-		i++;
+		if (*s1 != *s2)
+		{
+			return (*s1 - *s2);
+		}
+		s1++;
+		s2++;
 	}
+	return (*s1 - *s2);
 }

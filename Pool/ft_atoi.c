@@ -1,25 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmarinov <mmarinov@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/10 14:47:39 by mmarinov          #+#    #+#             */
-/*   Updated: 2024/05/13 13:15:17 by mmarinov         ###   ########.fr       */
+/*   Created: 2024/05/13 16:09:31 by mmarinov          #+#    #+#             */
+/*   Updated: 2024/05/14 11:01:07 by mmarinov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-
-void	ft_putstr(char *str)
+int	ft_atoi(char *str)
 {
-	int	i;
+	int	result;
+	int	sign;
 
-	i = 0;
-	while (str[i] != '\0')
+	result = 0;
+	sign = 1;
+	while (*str == 32 || (*str >= 9 && *str <= 13))
+		str++;
+	while (*str == '-' || *str == '+')
 	{
-		write(1, &str[i], 1);
-		i++;
+		if (*str == '-')
+			sign *= -1;
+		str++;
 	}
+	while (*str >= '0' && *str <= '9')
+	{
+		result = result * 10 + *str - '0';
+		str++;
+	}
+	return (result * sign);
 }

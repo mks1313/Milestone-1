@@ -1,25 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_strstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmarinov <mmarinov@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/10 14:47:39 by mmarinov          #+#    #+#             */
-/*   Updated: 2024/05/13 13:15:17 by mmarinov         ###   ########.fr       */
+/*   Created: 2024/05/09 14:28:31 by mmarinov          #+#    #+#             */
+/*   Updated: 2024/05/13 10:59:00 by mmarinov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-
-void	ft_putstr(char *str)
+char	*ft_strstr(char *str, char *to_find)
 {
-	int	i;
+	char	*ptr1;
+	char	*ptr2;
 
-	i = 0;
-	while (str[i] != '\0')
+	if (*to_find == '\0')
 	{
-		write(1, &str[i], 1);
-		i++;
+		return (str);
 	}
+	while (*str)
+	{
+		ptr1 = str;
+		ptr2 = to_find;
+		while ((*ptr1 != '\0' && *ptr2 != '\0') && *ptr1 == *ptr2)
+		{
+			ptr1++;
+			ptr2++;
+		}
+		if (*ptr2 == '\0')
+		{
+			return (str);
+		}
+		str++;
+	}
+	return (0);
 }
