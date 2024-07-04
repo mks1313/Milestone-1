@@ -6,7 +6,7 @@
 /*   By: mmarinov <mmarinov@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/19 13:11:11 by mmarinov          #+#    #+#             */
-/*   Updated: 2024/07/01 17:34:24 by mmarinov         ###   ########.fr       */
+/*   Updated: 2024/07/04 13:13:02 by mmarinov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,5 +39,7 @@ char	*ft_strdup(const char *s);
 void	*ft_calloc(size_t nmemb, size_t size);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 char	*ft_strjoin(char const *s1, char const *s2);
-
+char	*ft_strtrim(char const *s1, char const *set);
+/*char	**ft_split(char const *s, char c);
+*/
 #endif
