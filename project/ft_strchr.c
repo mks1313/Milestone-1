@@ -6,7 +6,7 @@
 /*   By: mmarinov <mmarinov@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/25 18:08:31 by mmarinov          #+#    #+#             */
-/*   Updated: 2024/06/26 15:09:17 by mmarinov         ###   ########.fr       */
+/*   Updated: 2024/07/02 17:40:33 by mmarinov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ char	*ft_strchr(const char *s, int c)
 int	main(void)
 {
 char	*str = "Hello, World";
-int		f = '\0';
+int		f = 'e';
 char	*result = ft_strchr(str, f);
 
 if (result != NULL)
