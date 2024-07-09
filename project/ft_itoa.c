@@ -6,7 +6,7 @@
 /*   By: mmarinov <mmarinov@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 10:32:57 by mmarinov          #+#    #+#             */
-/*   Updated: 2024/07/04 16:02:35 by mmarinov         ###   ########.fr       */
+/*   Updated: 2024/07/05 17:31:35 by mmarinov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,13 +28,12 @@ static int	num_len(int n)
 	}
 	return (len);
 }
+
 char	*ft_itoa(int n)
 {
 	char	*str;
 	int		len;
-	int		sign;
 
-	sign = 0;
 	len = num_len(n);
 	str = (char *)ft_calloc((len + 1), sizeof(char));
 	if (!str)
@@ -46,7 +45,7 @@ char	*ft_itoa(int n)
 	}
 	if (n < 0)
 	{
-		sign = 1;
+		str[0] = '-';
 		n = -n;
 	}
 	while (--len)
@@ -54,14 +53,12 @@ char	*ft_itoa(int n)
 		str[len] = (n % 10) + '0';
 		n /= 10;
 	}
-	if (sign)
-		str[0] = '-';
 	return (str);
 }
 
 int	main(void)
 {
-int	num = -2147483648;
+long	num = 359214783649;
 char	*result = ft_itoa(num);
 
 size_t	i;
@@ -79,6 +76,8 @@ free(result);
 else
 {
 printf("Error: Memoria insufuciente para convertit el numero.\n");
-	}
+}
+printf("El tamaño de long es: %zu bytes\n", sizeof(long));
+printf("El tamaño de long es: %zu bytes\n", sizeof(long long));
 return (0);
 }
