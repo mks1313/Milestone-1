@@ -6,24 +6,19 @@
 /*   By: mmarinov <mmarinov@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/09 19:01:41 by mmarinov          #+#    #+#             */
-/*   Updated: 2024/07/09 19:58:18 by mmarinov         ###   ########.fr       */
+/*   Updated: 2024/07/10 11:41:34 by mmarinov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <unistd.h>
 
-static void	ft_putchar_fd(char c, int fd)
-{
-	write(fd, &c, 1);
-}
-
 void	ft_putnbr_fd(int n, int fd)
 {
 	if (n == -2147483648)
 	{
 		write(fd, "-2147483648", 11);
-		return;
+		return ;
 	}
 	if (n < 0)
 	{
@@ -35,12 +30,12 @@ void	ft_putnbr_fd(int n, int fd)
 		ft_putnbr_fd(n / 10, fd);
 		ft_putchar_fd(n % 10 + '0', fd);
 	}
-	else 
+	else
 	{
 		ft_putchar_fd(n + '0', fd);
 	}
 }
-
+/*
 int main(void)
 {
 	// Crear y abrir un archivo para escribir
@@ -79,4 +74,4 @@ int main(void)
 	close(fd);
 
 	return 0;
-}
+}*/
