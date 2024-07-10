@@ -6,7 +6,7 @@
 /*   By: mmarinov <mmarinov@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 10:32:57 by mmarinov          #+#    #+#             */
-/*   Updated: 2024/07/05 17:31:35 by mmarinov         ###   ########.fr       */
+/*   Updated: 2024/07/10 11:05:44 by mmarinov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ char	*ft_itoa(int n)
 	}
 	return (str);
 }
-
+/*
 int	main(void)
 {
 long	num = 359214783649;
@@ -80,4 +80,4 @@ printf("Error: Memoria insufuciente para convertit el numero.\n");
 printf("El tamaño de long es: %zu bytes\n", sizeof(long));
 printf("El tamaño de long es: %zu bytes\n", sizeof(long long));
 return (0);
-}
+}*/
