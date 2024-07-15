@@ -6,96 +6,84 @@
 /*   By: mmarinov <mmarinov@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 16:06:03 by mmarinov          #+#    #+#             */
-/*   Updated: 2024/07/10 15:27:37 by mmarinov         ###   ########.fr       */
+/*   Updated: 2024/07/11 18:58:41 by mmarinov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdlib.h>
 
-static char	count_word(char const *s, char c)
+char	**ft_free_array(char **arr, size_t size)
 {
-	int	count;
-	int	in_word;
+	size_t	i;
+
+	i = 0;
+	while (i < size && arr[i] != NULL)
+	{
+		free(arr[i]);
+		arr[i] = NULL;
+		i++;
+	}
+	free(arr);
+	arr = NULL;
+	return (NULL);
+}
+
+size_t	ft_susbtr_len(const char *s, char c)
+{
+	size_t	len;
+
+	len = 0;
+	while (*s && *s == c)
+		s++;
+	while (s[len] && s[len] != c)
+		len++;
+	return (len);
+}
+
+size_t	ft_count_substr(const char *s, char c)
+{
+	size_t	count;
 
 	count = 0;
-	in_word = 0;
 	while (*s)
 	{
-		if (*s != c && !in_word)
-		{
-			in_word = 1;
+		while (*s && *s == c)
+			s++;
+		if (*s && *s != c)
 			count++;
-		}
-		else if (*s == c)
-			in_word = 0;
-		s++;
+		while (*s && *s != c)
+			s++;
 	}
 	return (count);
 }
 
-static char	*ft_strndup(const char *s, size_t n)
-{
-	char	*copy;
-	size_t	i;
-
-	copy = (char *)malloc((n + 1) * sizeof(char));
-	if (!copy)
-		return (NULL);
-	i = 0;
-	while (i < n)
-	{
-		copy[i] = s[i];
-		i++;
-	}
-	copy[i] = '\0';
-	return (copy);
-}
-
-static void	free_array(char **array, size_t count)
-{
-	size_t	i;
-
-	while (i < count)
-	{
-		free(array[i]);
-		i++;
-	}
-}
-
 char	**ft_split(char const *s, char c)
 {
-	char	**new_array;
-	size_t	count;
-	size_t	len;
+	char	**array;
+	size_t	sub_count;
+	size_t	i;
 
-	if (!s)
+	sub_count = ft_count_substr(s, c);
+	array = ft_calloc(sub_count + 1, sizeof(char *));
+	if (!array)
 		return (NULL);
-	count = 0;
-	new_array = (char **)ft_calloc(count_word(s, c) + 1, sizeof(char *));
-	if (!new_array)
-		return (NULL);
-	while (*s)
+	i = 0;
+	while (*s && i < sub_count)
 	{
-		if (*s != c)
-		{
-			len = 0;
-			while (s[len] && s[len] != c)
-				len++;
-			new_array[count] = ft_strdup(s);
-			if (!new_array[count])
-			{
-				free_array(new_array, count);
-				return (NULL);
-			}
-			count++;
-			s += len;
-		}
-		while (*s == c)
+		while (*s && *s == c)
 			s++;
-		new_array[count] = NULL;
+		if (*s && *s != c)
+		{
+			array[i] = ft_substr(s, 0, ft_susbtr_len(s, c));
+			if (array[i++] == NULL)
+				return (ft_free_array(array, i));
+		}
+		while (*s && *s != c)
+			s++;
 	}
-	return (new_array);
+	array[sub_count] = NULL;
+	return (array);
 }
 /*
 #include <stdio.h>

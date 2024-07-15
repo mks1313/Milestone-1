@@ -6,7 +6,7 @@
 /*   By: mmarinov <mmarinov@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/21 15:49:00 by mmarinov          #+#    #+#             */
-/*   Updated: 2024/07/10 11:10:49 by mmarinov         ###   ########.fr       */
+/*   Updated: 2024/07/11 17:42:23 by mmarinov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 
 	destiny = (unsigned char *)dest;
 	source = (unsigned char *)src;
-	if (!dest || !src)
+	if (!dest && !src)
 		return (NULL);
 	if (source < destiny)
 	{

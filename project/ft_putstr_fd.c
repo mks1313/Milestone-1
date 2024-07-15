@@ -6,24 +6,18 @@
 /*   By: mmarinov <mmarinov@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/10 14:30:33 by mmarinov          #+#    #+#             */
-/*   Updated: 2024/07/10 14:46:08 by mmarinov         ###   ########.fr       */
+/*   Updated: 2024/07/10 18:25:23 by mmarinov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <unistd.h>
 
 void	ft_putstr_fd(char *s, int fd)
 {
-	size_t	i;
-
-	if (s == NULL)
+	if (s)
 	{
-		return ;
-	}
-	while (s[i] != '\0')
-	{
-		ft_putchar_fd(s[i], fd);
-		i++;
+		write (fd, s, ft_strlen(s));
 	}
 }
 /*
