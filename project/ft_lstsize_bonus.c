@@ -1,44 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew_bonus.c                                  :+:      :+:    :+:   */
+/*   ft_lstsize_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmarinov <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/12 12:24:56 by mmarinov          #+#    #+#             */
-/*   Updated: 2024/07/15 11:25:25 by mmarinov         ###   ########.fr       */
+/*   Created: 2024/07/15 13:19:24 by mmarinov          #+#    #+#             */
+/*   Updated: 2024/07/15 15:46:30 by mmarinov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list	*ft_lstnew(void *content)
+int	ft_lstsize(t_list *lst)
 {
-	t_list	*new_node;
+	int	count;
 
-	new_node = (t_list *)malloc(sizeof(t_list));
-	if (!new_node)
-		return (NULL);
-	new_node->content = content;
-	new_node->next = NULL;
-	return (new_node);
+	count = 0;
+	while (lst)
+	{
+		count++;
+		lst = lst->next;
+	}
+	return (count);
 }
 /*
 #include <stdio.h>
 
 int	main(void)
 {
-char	*s = "Hello, world!";
-t_list 	*node;
+	t_list	*lista = ft_lstnew("hello!");
+	ft_lstadd_front(&lista,ft_lstnew("world!"));
+	ft_lstadd_front(&lista, ft_lstnew("hola"));
 
-node = ft_lstnew(s);
-if(node)
-{
-printf("Node content: %s\n", (char *)node->content);
-printf("Node next: %p\n", (void *)node->next);
-}
-else
-printf("Memory allocation failed\n");
-free(node);
-return (0);
+	int	num = ft_lstsize(lista);
+	printf("Numero total de listas son: %d\n", num);
+	while (lista)
+	{
+	printf("%s", (char *)lista->content);
+	lista = lista->next;
+	}
+	return (0);
 }*/

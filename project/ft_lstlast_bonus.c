@@ -1,44 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew_bonus.c                                  :+:      :+:    :+:   */
+/*   ft_lstlast_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmarinov <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/12 12:24:56 by mmarinov          #+#    #+#             */
-/*   Updated: 2024/07/15 11:25:25 by mmarinov         ###   ########.fr       */
+/*   Created: 2024/07/15 15:29:38 by mmarinov          #+#    #+#             */
+/*   Updated: 2024/07/15 15:54:15 by mmarinov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list	*ft_lstnew(void *content)
+t_list	*ft_lstlast(t_list *lst)
 {
-	t_list	*new_node;
-
-	new_node = (t_list *)malloc(sizeof(t_list));
-	if (!new_node)
+	if (!lst)
 		return (NULL);
-	new_node->content = content;
-	new_node->next = NULL;
-	return (new_node);
+	while (lst->next)
+	{
+		lst = lst->next;
+	}
+	return (lst);
 }
 /*
 #include <stdio.h>
 
 int	main(void)
 {
-char	*s = "Hello, world!";
-t_list 	*node;
+	t_list	*list = ft_lstnew("Nodo 1");
+	t_list	*node2 = ft_lstnew("Node 2");
+	t_list	*node3 = ft_lstnew("Node 3");
 
-node = ft_lstnew(s);
-if(node)
-{
-printf("Node content: %s\n", (char *)node->content);
-printf("Node next: %p\n", (void *)node->next);
-}
-else
-printf("Memory allocation failed\n");
-free(node);
-return (0);
+	list->next = node2;
+	node2->next = node3;
+
+	t_list *last = ft_lstlast(list);
+	if (last)
+		printf("El content of the last node is: %s\n", (char *)last->content);
+		printf("direccion es %p\n", last);
+	free(node3);
+	free(node2);
+	free(list);
+	return (0);
 }*/

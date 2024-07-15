@@ -6,13 +6,14 @@
 /*   By: mmarinov <mmarinov@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/19 13:11:11 by mmarinov          #+#    #+#             */
-/*   Updated: 2024/07/12 11:59:23 by mmarinov         ###   ########.fr       */
+/*   Updated: 2024/07/15 15:55:59 by mmarinov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 # include <stddef.h>
+# include <stdlib.h>
 
 typedef struct s_list
 {
@@ -54,5 +55,9 @@ void	ft_putendl_fd(char *s, int fd);
 void	ft_putstr_fd(char *c, int fd);
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 void	ft_striteri(char *s, void (*f)(unsigned int, char*));
+t_list	*ft_lstnew(void *content);
+void	ft_lstadd_front(t_list **lst, t_list *new);
+int		ft_lstsize(t_list *lst);
+t_list	*ft_lstlast(t_list *lst);
 
 #endif
