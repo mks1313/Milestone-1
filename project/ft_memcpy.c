@@ -6,7 +6,7 @@
 /*   By: mmarinov <mmarinov@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/21 13:04:34 by mmarinov          #+#    #+#             */
-/*   Updated: 2024/06/21 16:09:37 by mmarinov         ###   ########.fr       */
+/*   Updated: 2024/07/11 17:39:48 by mmarinov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 	count = 0;
 	dest_ptr = (unsigned char *)dest;
 	src_ptr = (const unsigned char *)src;
-	if (!src || !dest)
+	if (!src && !dest)
 		return (NULL);
 	while (count < n)
 	{

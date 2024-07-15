@@ -6,7 +6,7 @@
 /*   By: mmarinov <mmarinov@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/25 18:08:31 by mmarinov          #+#    #+#             */
-/*   Updated: 2024/07/02 17:40:33 by mmarinov         ###   ########.fr       */
+/*   Updated: 2024/07/11 16:42:59 by mmarinov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,13 @@ char	*ft_strchr(const char *s, int c)
 	ptr = (char *)s;
 	while (*ptr != '\0')
 	{
-		if (*ptr == c)
+		if (*ptr == (char)c)
 		{
 			return (ptr);
 		}
 		ptr++;
 	}
-	if (c == '\0')
+	if ((char)c == '\0')
 	{
 		return (ptr);
 	}
