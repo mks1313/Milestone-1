@@ -6,11 +6,14 @@
 #    By: mmarinov <mmarinov@student.42barcelon      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/19 13:27:43 by mmarinov          #+#    #+#              #
-#    Updated: 2024/07/15 11:42:35 by mmarinov         ###   ########.fr        #
+#    Updated: 2024/07/17 16:39:46 by mmarinov         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libft.a
+HBONUS = .bonus
+
+# Compilador y flags:
 
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror -g
@@ -24,37 +27,39 @@ SRCS = ft_isalnum.c ft_isalpha.c ft_isascii.c ft_isdigit.c ft_isprint.c \
 	ft_strmapi.c ft_split.c ft_striteri.c
 
 SRCS_BONUS = ft_lstnew_bonus.c ft_lstadd_front_bonus.c ft_lstsize_bonus.c \
-			ft_lstlast_bonus.c ft_lstadd_back.c ft_lstdelone_bonus.c \
+			ft_lstlast_bonus.c ft_lstadd_back_bonus.c ft_lstdelone_bonus.c \
 			ft_lstclear_bonus.c ft_lstiter_bonus.c ft_lstmap_bonus.c
 
-OBJS = $(SRCS:.c=.o)
+# Objetos
 
+OBJS = $(SRCS:.c=.o)
 OBJS_BONUS = $(SRCS_BONUS:.c=.o)
+
+# Reglas:
 
 all: $(NAME)
 
 $(NAME): $(OBJS)
 	ar rcs $@ $^
-	ranlib $@
+
+#  Compilacion e objetos:
+
+bonus: $(OBJS) $(OBJS_BONUS)
+	ar rcs $(NAME) $^
+	touch $(HBONUS)
+
 
 %.o: %.c Makefile libft.h
 	$(CC) $(CFLAGS) -c $< -o $@
 
-bonus: .bonus
-
-.bonus: $(OBJS_BONUS)
-	ar rcs $@ $^
-	ranlib $@
-	touch .bonus
+# Limpieza:
 
 clean:
-	rm -f $(OBJS)
-	rm -f $(OBJS_BONUS) $(BONUS)
+	@rm -f $(OBJS) $(OBJS_BONUS)
 
 fclean: clean
-	rm -f $(NAME)
+	@rm -f $(NAME)
 
 re: fclean all
 
 .PHONY: all clean fclean re
-
