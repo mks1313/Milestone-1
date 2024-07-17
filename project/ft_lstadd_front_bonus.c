@@ -6,7 +6,7 @@
 /*   By: mmarinov <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/15 11:26:14 by mmarinov          #+#    #+#             */
-/*   Updated: 2024/07/15 13:17:17 by mmarinov         ###   ########.fr       */
+/*   Updated: 2024/07/17 13:25:26 by mmarinov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,12 @@
 
 void	ft_lstadd_front(t_list **lst, t_list *new)
 {
-	if (new)
+	if (!lst || !new)
 	{
-		new->next = *lst;
-		*lst = new;
+		return ;
 	}
+	new->next = *lst;
+	*lst = new;
 }
 /*
 #include <stdio.h>
