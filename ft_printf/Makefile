@@ -6,7 +6,7 @@
 #    By: mmarinov <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/18 15:46:56 by mmarinov          #+#    #+#              #
-#    Updated: 2024/07/20 14:48:45 by mmarinov         ###   ########.fr        #
+#    Updated: 2024/07/20 15:30:27 by mmarinov         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,7 +40,7 @@ $(LIBFT):
 
 # Crear la biblioteca libftprintf.a
 $(NAME): $(OBJ) $(LIBFT)
-	$(AR) $(NAME) $(OBJ)
+	$(AR)  $(NAME) $(OBJ) $(LIBFT)
 
 # Regla para compilar archivos .c en .o
 %.o: %.c
