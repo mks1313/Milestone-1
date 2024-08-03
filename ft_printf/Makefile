@@ -6,7 +6,7 @@
 #    By: mmarinov <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/18 15:46:56 by mmarinov          #+#    #+#              #
-#    Updated: 2024/07/20 15:30:27 by mmarinov         ###   ########.fr        #
+#    Updated: 2024/08/03 14:21:23 by mmarinov         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@
 NAME = libftprintf.a
 
 # Archivos fuente de ft_printf
-SRC = ft_printf.c convert.c utils.c
+SRC = ft_printf.c utils_csp.c utils_diuxx.c
 
 # Archivos objeto generados a partir de los archivos fuente
 OBJ = $(SRC:.c=.o)
@@ -39,8 +39,11 @@ $(LIBFT):
 	$(MAKE) -C $(LIBFT_DIR) bonus
 
 # Crear la biblioteca libftprintf.a
-$(NAME): $(OBJ) $(LIBFT)
-	$(AR)  $(NAME) $(OBJ) $(LIBFT)
+$(NAME): $(OBJ)
+	@make -C libft
+	@cp libft/libft.a .
+	@mv libft.a $(NAME)
+	@ar -r $(NAME) $(OBJ)
 
 # Regla para compilar archivos .c en .o
 %.o: %.c

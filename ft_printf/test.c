@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   test.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mmarinov <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/08/01 15:06:55 by mmarinov          #+#    #+#             */
+/*   Updated: 2024/08/02 11:53:11 by mmarinov         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <stdio.h>
 #include <stdarg.h>
 #include <unistd.h>
@@ -6,7 +18,6 @@ void	print_char(int caracter, int *counter)
 {
 	if (write(1, &caracter, 1) == 1)
 		(*counter)++;
-
 }
 
 static int	char_check(va_list args, char type, int *counter)
@@ -18,7 +29,7 @@ static int	char_check(va_list args, char type, int *counter)
 
 int	ft_printf(char const *string, ...)
 {
-	va_list args;
+	va_list	args;
 	int		i;
 	int		counter;
 
@@ -27,7 +38,7 @@ int	ft_printf(char const *string, ...)
 	va_start(args, string);
 	while (string[i])
 	{
-		if (string[i] == '%')
+		if (string[i] == '%' && string[i + 1])
 		{
 			i++;
 			if (string[i])
@@ -45,11 +56,12 @@ int	ft_printf(char const *string, ...)
 
 int	main(void)
 {
-	int	c = 'c';
+	int	c;
 
+	c = 'c';
 	printf("Hola\n");
 	ft_printf("Hola\n");
-	ft_printf("%i\n", ft_printf("%c", c));
-	printf("%i\n", printf("%c", c));
-	return(0);
+	ft_printf("%i\n", ft_printf("%c\n", c));
+	printf("%i\n", printf("%c\n", c));
+	return (0);
 }
