@@ -6,7 +6,7 @@
 /*   By: mmarinov <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/01 15:20:33 by mmarinov          #+#    #+#             */
-/*   Updated: 2024/08/03 17:42:25 by mmarinov         ###   ########.fr       */
+/*   Updated: 2024/08/03 18:02:38 by mmarinov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,9 @@ int	main(void)
 	s = "Max";
 	ch = 'c';
 	uno = printf("character %c\n %s\n %p\n", ch, s, s);
-	printf("%d\n", uno);
 	printf("Ahora mi funcion!\n");
 	dos = ft_printf("Character %c\n %s\n %p\n", ch, s, s);
-	printf("%d\n", dos);
+	printf("printf retorna: %d\n", dos);
+	printf("ft_printf retorna: %d\n", uno);
 	return (0);
 }
