@@ -6,7 +6,7 @@
 /*   By: mmarinov <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/20 13:13:11 by mmarinov          #+#    #+#             */
-/*   Updated: 2024/08/03 17:43:40 by mmarinov         ###   ########.fr       */
+/*   Updated: 2024/08/05 18:58:02 by mmarinov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,43 +14,42 @@
 #include "ft_printf.h"
 #include <stdio.h>
 
-int	ft_printf(char const *s, ...)
+int	ft_check_char(va_list *args, char c)
 {
-	int		count;
-	va_list	args;
+	int	length;
 
-	count = 0;
+	length = 0;
+	if (c == 'c')
+		length += ft_print_char(va_arg(*args, int));
+	else if (c == 's')
+		length += ft_print_str(va_arg(*args, char *));
+	else if (c == 'p')
+		length += ft_print_ptr(va_arg(*args, void *));
+	else
+		length += ft_print_char(c);
+	return (length);
+}
+
+int	ft_printf(const char *s, ...)
+{
+	va_list	args;
+	int		tot_len;
+	int		i;
+
+	tot_len = 0;
+	i = 0;
 	va_start(args, s);
-	while (*s)
+	while (s[i])
 	{
-		if (*s == '%' && *(s + 1))
-			s++;
-		if (*s == 'c')
+		if (s[i] == '%' && s[i + 1])
 		{
-			ft_print_char(va_arg(args, int));
-			count++;
+			i++;
+			tot_len += ft_check_char(&args, s[i]);
 		}
-		else if (*s == 's')
-			count += ft_print_str(va_arg(args, char *));
-		else if (*s == 'p')
-			count += ft_print_ptr(va_arg(args, void *));
 		else
-		{
-			ft_print_char(*s);
-			count++;
-		}
-		s++;
+			tot_len += ft_print_char(s[i]);
+		i++;
 	}
 	va_end(args);
-	return (count);
+	return (tot_len);
 }
-/*
-int	main(void)
-{
-	char	c;
-
-	c = 'f';
-	printf("original: %c\n", c);
-	ft_printf("%c", c);
-	return (0);
-}*/
