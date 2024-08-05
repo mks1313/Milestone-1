@@ -6,7 +6,7 @@
 /*   By: mmarinov <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/20 15:20:50 by mmarinov          #+#    #+#             */
-/*   Updated: 2024/08/03 17:55:14 by mmarinov         ###   ########.fr       */
+/*   Updated: 2024/08/05 18:57:36 by mmarinov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include <stdarg.h>
 # include <stdlib.h>
 
+int		ft_check_char(va_list *args, char c);
 int		ft_printf(char const *s, ...);
 int		ft_print_char(char c);
 int		ft_print_str(char *s);
