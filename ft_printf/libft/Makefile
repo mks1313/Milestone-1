@@ -6,7 +6,7 @@
 #    By: mmarinov <mmarinov@student.42barcelon      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/19 13:27:43 by mmarinov          #+#    #+#              #
-#    Updated: 2024/08/03 11:46:59 by mmarinov         ###   ########.fr        #
+#    Updated: 2024/08/06 15:14:28 by mmarinov         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,7 @@ SRCS = ft_isalnum.c ft_isalpha.c ft_isascii.c ft_isdigit.c ft_isprint.c \
 	ft_putchar_fd.c ft_putendl_fd.c ft_putnbr_fd.c ft_putstr_fd.c \
 	ft_strmapi.c ft_split.c ft_striteri.c ft_lstnew.c ft_lstadd_front.c \
 	ft_lstsize.c ft_lstlast.c ft_lstadd_back.c ft_lstdelone.c ft_lstclear.c \
-	ft_lstiter.c ft_lstmap.c
+	ft_lstiter.c ft_lstmap.c ft_utoa.c
 
 # Objetos
 

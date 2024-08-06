@@ -6,7 +6,7 @@
 /*   By: mmarinov <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/20 13:13:11 by mmarinov          #+#    #+#             */
-/*   Updated: 2024/08/05 18:58:02 by mmarinov         ###   ########.fr       */
+/*   Updated: 2024/08/06 17:04:50 by mmarinov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,10 @@ int	ft_check_char(va_list *args, char c)
 		length += ft_print_str(va_arg(*args, char *));
 	else if (c == 'p')
 		length += ft_print_ptr(va_arg(*args, void *));
+	else if (c == 'i' || c == 'd')
+		length += ft_print_int(va_arg(*args, int));
+	else if (c == 'u')
+		length += ft_print_unsigned(va_arg(*args, unsigned int));
 	else
 		length += ft_print_char(c);
 	return (length);

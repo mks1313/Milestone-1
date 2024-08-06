@@ -6,13 +6,11 @@
 /*   By: mmarinov <mmarinov@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 10:32:57 by mmarinov          #+#    #+#             */
-/*   Updated: 2024/07/11 19:14:05 by mmarinov         ###   ########.fr       */
+/*   Updated: 2024/08/06 15:27:57 by mmarinov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdlib.h>
-#include <limits.h>
 
 static int	num_len(int n)
 {

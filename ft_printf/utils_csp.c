@@ -6,7 +6,7 @@
 /*   By: mmarinov <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/20 13:15:22 by mmarinov          #+#    #+#             */
-/*   Updated: 2024/08/03 17:55:59 by mmarinov         ###   ########.fr       */
+/*   Updated: 2024/08/06 18:35:11 by mmarinov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	ft_print_char(char c)
 int	ft_print_str(char *s)
 {
 	if (s == 0)
-		s = "null";
+		s = "(null)";
 	ft_putstr_fd(s, 1);
 	return (ft_strlen(s));
 }
@@ -42,13 +42,16 @@ int	ft_ptrlen(unsigned long long num)
 	return (len);
 }
 
-void	ft_putnum_hex(unsigned long num)
+void	ft_putnum_hex(unsigned long num, int uppercase)
 {
 	char	*hex_digits;
 	char	buffer[16];
 	int		i;
 
-	hex_digits = "0123456789abcdef";
+	if (uppercase)
+		hex_digits = "0123456789ABCDEF";
+	else
+		hex_digits = "0123456789abcdef";
 	i = 0;
 	if (num == 0)
 	{
@@ -71,8 +74,6 @@ int	ft_print_ptr(void *p)
 
 	printed_nums = 0;
 	addr = (unsigned long)p;
-	write(1, "0x", 2);
-	printed_nums += 2;
 	if (addr == 0)
 	{
 		printed_nums += ft_print_str("(nil)");
@@ -80,7 +81,9 @@ int	ft_print_ptr(void *p)
 	}
 	else
 	{
-		ft_putnum_hex(addr);
+		write(1, "0x", 2);
+		printed_nums += 2;
+		ft_putnum_hex(addr, 0);
 		printed_nums += ft_ptrlen(addr);
 	}
 	return (printed_nums);
