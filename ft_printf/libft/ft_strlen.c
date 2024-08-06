@@ -6,7 +6,7 @@
 /*   By: mmarinov <mmarinov@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/18 14:01:56 by mmarinov          #+#    #+#             */
-/*   Updated: 2024/06/20 16:29:48 by mmarinov         ###   ########.fr       */
+/*   Updated: 2024/08/06 12:55:14 by mmarinov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,12 @@
 
 size_t	ft_strlen(const char *s)
 {
-	size_t	i;
+	size_t	len;
 
-	i = 0;
-	while (*s != '\0')
+	len = 0;
+	while (s[len] != '\0')
 	{
-		s++;
-		i++;
+		len++;
 	}
-	return (i);
+	return (len);
 }
