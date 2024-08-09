@@ -6,7 +6,7 @@
 #    By: mmarinov <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/18 15:46:56 by mmarinov          #+#    #+#              #
-#    Updated: 2024/08/03 14:21:23 by mmarinov         ###   ########.fr        #
+#    Updated: 2024/08/07 15:54:11 by mmarinov         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,6 +23,8 @@ OBJ = $(SRC:.c=.o)
 LIBFT_DIR = libft
 LIBFT = $(LIBFT_DIR)/libft.a
 
+INCLUDE = ft_printf.h
+
 # Compilador y opciones de compilación
 CC = gcc
 CFLAGS = -g -Wall -Wextra -Werror
@@ -36,7 +38,7 @@ all: $(NAME)
 
 # Compilar libft usando su propio Makefile
 $(LIBFT):
-	$(MAKE) -C $(LIBFT_DIR) bonus
+	$(MAKE) -C $(LIBFT_DIR)
 
 # Crear la biblioteca libftprintf.a
 $(NAME): $(OBJ)
@@ -46,7 +48,7 @@ $(NAME): $(OBJ)
 	@ar -r $(NAME) $(OBJ)
 
 # Regla para compilar archivos .c en .o
-%.o: %.c
+%.o: %.c $(INCLUDE) Makefile
 	$(CC) $(CFLAGS) -I$(LIBFT_DIR) -c $< -o $@
 
 # Regla para limpiar archivos objeto
