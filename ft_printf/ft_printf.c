@@ -6,7 +6,7 @@
 /*   By: mmarinov <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/20 13:13:11 by mmarinov          #+#    #+#             */
-/*   Updated: 2024/08/06 17:04:50 by mmarinov         ###   ########.fr       */
+/*   Updated: 2024/08/07 13:57:59 by mmarinov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,10 @@ int	ft_check_char(va_list *args, char c)
 		length += ft_print_int(va_arg(*args, int));
 	else if (c == 'u')
 		length += ft_print_unsigned(va_arg(*args, unsigned int));
+	else if (c == 'x')
+		length += ft_print_lower_hex(va_arg(*args, unsigned int));
+	else if (c == 'X')
+		length += ft_print_upper_hex(va_arg(*args, unsigned int));
 	else
 		length += ft_print_char(c);
 	return (length);
