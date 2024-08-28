@@ -34,7 +34,7 @@ Implementation of a print formatting function similar to `printf` to practice st
 Feel free to reach out to me through:
 
 - **GitHub:** [mks1313](https://github.com/mks1313)
-- **Email:** [your.email@example.com](mailto:your.email@example.com)
+- **Email:** [mg.marinov@gmx.es](mailto:mg.marinov@gmx.es)
 
 Thank you for visiting my profile and following my progress in programming!
 
