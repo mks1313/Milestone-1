@@ -4,25 +4,27 @@ Welcome to my repository at Campus 42 Barcelona! Here, I store my projects and e
 
 ## Current Projects
 
-### 1. **Libft**
-Implementation of the C standard library to strengthen my skills with fundamental functions.
+### 1. **Libft** & **Get Next Line**
 
-![Libft Badge](https://github.com/ayogun/42-project-badges/blob/main/badges/libftm.png) ![Libft Badge](https://github.com/ayogun/42-project-badges/blob/main/badges/libftm.png)
+**Libft:** Implementation of the C standard library to strengthen my skills with fundamental functions.
 
-### 2. **Get Next Line**
-Development of a function to read a line from a file or standard input, line by line, until the end.
+![Libft Badge](https://github.com/ayogun/42-project-badges/blob/main/badges/libftm.png)
 
-![Get Next Line Badge](https://github.com/ayogun/42-project-badges/blob/main/badges/get_next_linem.png) ![Get Next Line Badge](https://github.com/ayogun/42-project-badges/blob/main/badges/get_next_linem.png)
+**Get Next Line:** Development of a function to read a line from a file or standard input, line by line, until the end.
 
-### 3. **Born2beroot**
-Setting up a server environment from scratch and handling system management to understand Linux system administration.
+![Get Next Line Badge](https://github.com/ayogun/42-project-badges/blob/main/badges/get_next_linem.png)
 
-![Born2beroot Badge](https://github.com/ayogun/42-project-badges/blob/main/badges/born2berootm.png) ![Born2beroot Badge](https://github.com/ayogun/42-project-badges/blob/main/badges/born2berootm.png)
+---
 
-### 4. **Ft_printfe**
-Implementation of a print formatting function similar to `printf` to practice string handling and output formatting.
+### 2. **Born2beroot** & **Ft_printfe**
 
-![Ft_printfe Badge](https://github.com/ayogun/42-project-badges/blob/main/badges/ft_printfe.png) ![Ft_printfe Badge](https://github.com/ayogun/42-project-badges/blob/main/badges/ft_printfe.png)
+**Born2beroot:** Setting up a server environment from scratch and handling system management to understand Linux system administration.
+
+![Born2beroot Badge](https://github.com/ayogun/42-project-badges/blob/main/badges/born2berootm.png)
+
+**Ft_printfe:** Implementation of a print formatting function similar to `printf` to practice string handling and output formatting.
+
+![Ft_printfe Badge](https://github.com/ayogun/42-project-badges/blob/main/badges/ft_printfe.png)
 
 ## My Achievements
 
