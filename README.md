@@ -19,7 +19,7 @@ Setting up a server environment from scratch and handling system management to u
 
 ![Born2beroot Badge](https://github.com/ayogun/42-project-badges/blob/main/badges/born2berootm.png)
 
-### 4. **Ft_printfe**
+### 4. **Ft_printf**
 Implementation of a print formatting function similar to `printf` to practice string handling and output formatting.
 
 ![Ft_printfe Badge](https://github.com/ayogun/42-project-badges/blob/main/badges/ft_printfe.png)
