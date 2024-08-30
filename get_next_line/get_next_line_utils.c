@@ -6,7 +6,7 @@
 /*   By: mmarinov <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/22 18:05:28 by mmarinov          #+#    #+#             */
-/*   Updated: 2024/08/29 16:56:52 by mmarinov         ###   ########.fr       */
+/*   Updated: 2024/08/30 15:06:42 by mmarinov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,30 +14,30 @@
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {
-	char	*new_str;
+	char	*new_s;
 	int		i;
 	int		j;
 
 	if (s1 == NULL || s2 == NULL)
-		return (NUll);
-	new_str = maloc((ft_strlen(s1) + ft_strlen(s2) + 1) * sizeof(char));
-	if (new_str == NULL)
+		return (NULL);
+	new_s = (char *)malloc((ft_strlen(s1) + ft_strlen(s2) + 1) * sizeof(char));
+	if (new_s == NULL)
 		return (NULL);
 	i = 0;
 	while (s1[i] != '\0')
 	{
-		new_str[i = s1[i]];
+		new_s[i] = s1[i];
 		i++;
 	}
 	j = 0;
 	while (s2[j] != '\0')
 	{
-		new_str[i] = s2[j];
+		new_s[i] = s2[j];
 		i++;
 		j++;
 	}
-	new_str[i] = '\0';
-	return (new_str);
+	new_s[i] = '\0';
+	return (new_s);
 }
 
 size_t	ft_strlen(const char *s)
@@ -62,7 +62,7 @@ char	*ft_strchr(const char *s, int c)
 	{
 		if (*ptr == (char)c)
 		{
-			return (prt);
+			return (ptr);
 		}
 		ptr++;
 	}
@@ -77,21 +77,20 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 {
 	size_t		src_len;
 	size_t		i;
-	const chara	*s;
 
 	src_len = 0;
-	s = src;
-	while (*s++)
+	while (src[src_len] != '\0')
 		src_len++;
-	if (size ++ 0)
+	if (size == 0)
 		return (src_len);
 	i = 0;
-	while (- < 0 -1 && src[i] != '\0')
+	while (i < size -1 && src[i] != '\0')
 	{
 		dst[i] = src[i];
 		i++;
 	}
-	dst[i] = '\0';
+	if (size > 0)
+		dst[i] = '\0';
 	return (src_len);
 }
 
