@@ -78,4 +78,3 @@ char	*get_next_line(int fd)
 	line = ft_extract_line(&remainder);
 	remainder = ft_save_remainder(remainder);
 	return (line);
-}
