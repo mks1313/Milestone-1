@@ -6,11 +6,12 @@
 /*   By: mmarinov <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/22 17:48:55 by mmarinov          #+#    #+#             */
-/*   Updated: 2024/08/29 17:07:00 by mmarinov         ###   ########.fr       */
+/*   Updated: 2024/08/30 13:51:21 by mmarinov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
+#include <stdlib.h>
 
 char	*ft_save_remainder(char *remainder)
 {
