@@ -6,6 +6,7 @@
 /*   By: mmarinov <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/22 18:05:28 by mmarinov          #+#    #+#             */
+/*   Updated: 2024/08/29 16:56:52 by mmarinov         ###   ########.fr       */
 /*   Updated: 2024/08/30 15:06:42 by mmarinov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
@@ -19,6 +20,11 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	int		j;
 
 	if (s1 == NULL || s2 == NULL)
+		return (NUll);
+	new_str = maloc((ft_strlen(s1) + ft_strlen(s2) + 1) * sizeof(char));
+	if (new_str == NULL)
+	new_s = (char *)malloc((ft_strlen(s1) + ft_strlen(s2) + 1) * sizeof(char));
+	if (new_s == NULL)
 		return (NULL);
 	new_s = (char *)malloc((ft_strlen(s1) + ft_strlen(s2) + 1) * sizeof(char));
 	if (new_s == NULL)
@@ -32,6 +38,17 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	j = 0;
 	while (s2[j] != '\0')
 	{
+		new_str[i] = s2[j];
+		i++;
+		j++;
+	}
+	new_str[i] = '\0';
+	return (new_str);
+		new_s[i + j] = s2[j];
+		j++;
+	}
+	new_s[i + j] = '\0';
+	return (new_s);
 		new_s[i] = s2[j];
 		i++;
 		j++;
@@ -40,20 +57,17 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	return (new_s);
 }
 
-size_t	ft_strlen(const char *s)
+int	ft_strlen(const char *s)
 {
-	size_t	i;
+	int	i;
 
 	i = 0;
-	while (*s != '\0')
-	{
-		s++;
+	while (s[i])
 		i++;
-	}
 	return (i);
 }
 
-char	*ft_strchr(const char *s, int c)
+char	*ft_strchr(const char *s, int i)
 {
 	char	*ptr;
 
@@ -67,14 +81,18 @@ char	*ft_strchr(const char *s, int c)
 		ptr++;
 	}
 	if ((char)c == '\0')
+	while (*s)
 	{
-		return (ptr);
+		if (*s == i)
+			return ((char *)s);
+		s++;
 	}
-	return (NULL);
+	if (i == '\0')
+		return ((char *)s);
+	return (0);
 }
 
-size_t	ft_strlcpy(char *dst, const char *src, size_t size)
-{
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 	size_t		src_len;
 	size_t		i;
 
@@ -84,23 +102,50 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 	if (size == 0)
 		return (src_len);
 	i = 0;
+	while (- < 0 -1 && src[i] != '\0')
+	size_t	i;
+	size_t	j;
+	char	*str;
+
+	str = (char *)malloc((len + 1) * sizeof(*s));
+	if (!str)
+		return (NULL);
+	j = 0;
+	i = 0;
+	while (s[i])
 	while (i < size -1 && src[i] != '\0')
 	{
-		dst[i] = src[i];
+		if (i >= start && j < len)
+		{
+			str[j] = s[i];
+			j++;
+		}
 		i++;
 	}
+	dst[i] = '\0';
 	if (size > 0)
 		dst[i] = '\0';
 	return (src_len);
+	str[j] = 0;
+	return (str);
 }
 
 char	*ft_strdup(const char *s)
 {
 	char	*copy;
+	int		i;
+	int		j;
 
-	copy = (char *)malloc(ft_strlen(s) + 1);
+	i = 0;
+	j = ft_strlen(s);
+	copy = (char *)malloc((j + 1) * sizeof(*copy));
 	if (!copy)
 		return (NULL);
-	ft_strlcpy(copy, s, (ft_strlen(s) + 1));
+	while (i < j)
+	{
+		copy[i] = s[i];
+		i++;
+	}
+	copy[i] = '\0';
 	return (copy);
 }

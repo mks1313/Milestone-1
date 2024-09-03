@@ -6,6 +6,8 @@
 /*   By: mmarinov <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/22 17:48:55 by mmarinov          #+#    #+#             */
+/*   Updated: 2024/08/29 17:07:00 by mmarinov         ###   ########.fr       */
+/*   Updated: 2024/09/02 20:12:37 by mmarinov         ###   ########.fr       */
 /*   Updated: 2024/08/30 14:23:33 by mmarinov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
@@ -61,24 +63,15 @@ char	*ft_extract_line(char **remainder)
 
 char	*get_next_line(int fd)
 {
-	static char	*remainder;
 	char		*line;
-	char		buffer[BUFFER_SIZE + 1];
-	int			bytes_read;
+	char		buffer[BUFFER_SIZE];
+	static char	*saved_data;
+	size_t		result_line;
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
-	bytes_read = read(fd, buffer, BUFFER_SIZE);
-	while (bytes_read > 0)
-	{
-		buffer[bytes_read] = '\0';
-		remainder = ft_strjoin(remainder, buffer);
-		if (ft_strchr(remainder, '\n'))
-			break ;
-	}
-	if (bytes_read < 0 || (!bytes_read && !remainder))
-		return (NULL);
-	line = ft_extract_line(&remainder);
-	remainder = ft_save_remainder(remainder);
-	return (line);
+	result_line = read(fd, buffer, BUFFER_SIZE);
+	if (result_line == 0)
+		return ;
+
 }
