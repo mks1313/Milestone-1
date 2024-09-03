@@ -6,6 +6,8 @@
 /*   By: mmarinov <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/22 18:05:50 by mmarinov          #+#    #+#             */
+/*   Updated: 2024/08/29 16:29:36 by mmarinov         ###   ########.fr       */
+/*   Updated: 2024/09/02 18:28:28 by mmarinov         ###   ########.fr       */
 /*   Updated: 2024/08/30 14:44:47 by mmarinov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
@@ -25,11 +27,9 @@
 
 char	*get_next_line(int fd);
 char	*ft_strjoin(char const *s1, char const *s2);
-size_t	ft_strlen(const char *s);
-char	*ft_strchr(const char *s, int c);
-char	*ft_save_remainder(char *remainder);
-char	*extract_line(char **remainder);
-size_t	ft_strlcpy(char *dst, const char *src, size_t size);
+int		ft_strlen(const char *s);
+char	*ft_strchr(const char *s, int i);
 char	*ft_strdup(const char *s);
+char	*ft_substr(char const *s, unsigned int start, size_t len);
 
 #endif
