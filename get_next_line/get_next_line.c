@@ -6,17 +6,14 @@
 /*   By: mmarinov <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/22 17:48:55 by mmarinov          #+#    #+#             */
-<<<<<<< Updated upstream
 /*   Updated: 2024/08/29 17:07:00 by mmarinov         ###   ########.fr       */
-=======
 /*   Updated: 2024/09/02 20:12:37 by mmarinov         ###   ########.fr       */
->>>>>>> Stashed changes
+/*   Updated: 2024/08/30 14:23:33 by mmarinov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-<<<<<<< Updated upstream
 char	*ft_save_remainder(char *remainder)
 {
 	char	*newline_pos;
@@ -51,18 +48,19 @@ char	*ft_extract_line(char **remainder)
 	}
 	else
 	{
-		line = (char *)ft_strlen(*remainder);
+		len = ft_strlen(*remainder);
 	}
 	line = (char *)malloc(len + 1);
 	if (!line)
 		return (NULL);
-	ft_strlcpy(line, *remainder, len);
-	line[len] = '\n';
+	ft_strlcpy(line, *remainder, len + 1);
+	if (newline_pos)
+	{
+		len = newline_pos - *remainder + 1;
+	}
 	return (line);
 }
 
-=======
->>>>>>> Stashed changes
 char	*get_next_line(int fd)
 {
 	char		*line;
