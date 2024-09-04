@@ -6,11 +6,12 @@
 /*   By: mmarinov <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/22 17:48:55 by mmarinov          #+#    #+#             */
-/*   Updated: 2024/09/04 17:09:50 by mmarinov         ###   ########.fr       */
+/*   Updated: 2024/09/04 18:29:02 by mmarinov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
+
 
 /**
  * Free the memory pointed to by 'ptr' and set it to NULL.
@@ -51,6 +52,7 @@ static char	*extract_line(char **buffer)
 /**
  * Read data from the fd into 'buffer'.
  */
+
 static int	read_from_file(int fd, char **buffer)
 {
 	char	read_buf[BUFFER_SIZE + 1];
@@ -80,6 +82,7 @@ static int	read_from_file(int fd, char **buffer)
 /**
  * Read a line from the fd.
  */
+
 char	*get_next_line(int fd)
 {
 	char		*line;
