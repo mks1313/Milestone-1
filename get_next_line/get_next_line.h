@@ -6,11 +6,7 @@
 /*   By: mmarinov <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/22 18:05:50 by mmarinov          #+#    #+#             */
-<<<<<<< Updated upstream
-/*   Updated: 2024/08/29 16:29:36 by mmarinov         ###   ########.fr       */
-=======
 /*   Updated: 2024/09/02 18:28:28 by mmarinov         ###   ########.fr       */
->>>>>>> Stashed changes
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +21,7 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <string.h>
+# include <stddef.h>
 
 char	*get_next_line(int fd);
 char	*ft_strjoin(char const *s1, char const *s2);
