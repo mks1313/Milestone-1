@@ -6,7 +6,7 @@
 /*   By: mmarinov <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/22 17:48:55 by mmarinov          #+#    #+#             */
-/*   Updated: 2024/09/07 12:15:12 by mmarinov         ###   ########.fr       */
+/*   Updated: 2024/09/07 13:36:54 by mmarinov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,6 @@ static char	*extract_line(char **buffer)
 
 /**
  * Read data from the fd into 'buffer'.
- * TODO reservar read_buf con malloc dinamicamente.
  */
 static int	read_from_file(int fd, char **buffer)
 {
@@ -77,10 +76,7 @@ static int	read_from_file(int fd, char **buffer)
 	{
 		temp = ft_strjoin(*buffer, read_buf);
 		if (!temp)
-		{
-			free_memory(buffer);
-			return (free(read_buf), -1);
-		}
+			return (free_memory(buffer), free(read_buf), -1);
 		free_memory(buffer);
 		*buffer = temp;
 	}
@@ -100,10 +96,7 @@ char	*get_next_line(int fd)
 
 	bytes_read = 1;
 	if (fd < 0 || BUFFER_SIZE <= 0)
-	{
-		free_memory(&buffer);
-		return (NULL);
-	}
+		return (free_memory(&buffer), NULL);
 	while (1)
 	{
 		if (!buffer || !ft_strchr(buffer, '\n'))
