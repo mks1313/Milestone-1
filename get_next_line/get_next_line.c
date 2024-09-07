@@ -6,12 +6,11 @@
 /*   By: mmarinov <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/22 17:48:55 by mmarinov          #+#    #+#             */
-/*   Updated: 2024/09/04 18:29:02 by mmarinov         ###   ########.fr       */
+/*   Updated: 2024/09/07 12:15:12 by mmarinov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
-
 
 /**
  * Free the memory pointed to by 'ptr' and set it to NULL.
@@ -21,8 +20,8 @@ static void	free_memory(char **ptr)
 {
 	if (ptr && *ptr)
 	{
-		free(*ptr)
-		*ptr == NULL;
+		free(*ptr);
+		*ptr = NULL;
 	}
 }
 
@@ -36,67 +35,86 @@ static char	*extract_line(char **buffer)
 	char	*line;
 	char	*new_buffer;
 
+	if (!*buffer)
+		return (NULL);
 	i = 0;
 	while ((*buffer)[i] && (*buffer)[i] != '\n')
 		i++;
 	if ((*buffer)[i] == '\n')
 		i++;
 	line = ft_strndup(*buffer, i);
+	if (!line)
+		return (NULL);
+	new_buffer = ft_strdup(*buffer + i);
 	free_memory(buffer);
 	*buffer = new_buffer;
-	if (**buffer == '\n')
+	if (!*buffer || !**buffer)
 		free_memory(buffer);
 	return (line);
 }
 
 /**
  * Read data from the fd into 'buffer'.
+ * TODO reservar read_buf con malloc dinamicamente.
  */
-
 static int	read_from_file(int fd, char **buffer)
 {
-	char	read_buf[BUFFER_SIZE + 1];
+	char	*read_buf;
 	char	*temp;
 	ssize_t	bytes_read;
 
+	read_buf = malloc((BUFFER_SIZE + 1) * sizeof(char));
 	bytes_read = read(fd, read_buf, BUFFER_SIZE);
 	if (bytes_read < 0)
 	{
 		free_memory(buffer);
-		return (bytes_read);
+		return (free(read_buf), bytes_read);
 	}
 	if (bytes_read == 0)
-		return (bytes_read);
-	read_buf[bytes_read] = '\n';
+		return (free(read_buf), bytes_read);
+	read_buf[bytes_read] = '\0';
 	if (*buffer)
 	{
 		temp = ft_strjoin(*buffer, read_buf);
+		if (!temp)
+		{
+			free_memory(buffer);
+			return (free(read_buf), -1);
+		}
 		free_memory(buffer);
 		*buffer = temp;
 	}
 	else
 		*buffer = ft_strdup(read_buf);
-	return (bytes_read);
+	return (free(read_buf), bytes_read);
 }
 
 /**
  * Read a line from the fd.
  */
-
 char	*get_next_line(int fd)
 {
 	char		*line;
 	static char	*buffer;
 	ssize_t		bytes_read;
 
+	bytes_read = 1;
 	if (fd < 0 || BUFFER_SIZE <= 0)
 	{
 		free_memory(&buffer);
 		return (NULL);
 	}
-	bytes_read = 1;
-	while (bytes_read > 0 && !ft_strchr(buffer, '\n'))
-		bytes_read = reaad_from_file(fd, &buffer);
+	while (1)
+	{
+		if (!buffer || !ft_strchr(buffer, '\n'))
+		{
+			bytes_read = read_from_file(fd, &buffer);
+			if (bytes_read <= 0)
+				break ;
+		}
+		else
+			break ;
+	}
 	if ((bytes_read == 0 && (!buffer || *buffer == '\0')) || bytes_read < 0)
 	{
 		free_memory(&buffer);

@@ -6,7 +6,7 @@
 /*   By: mmarinov <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/22 18:05:28 by mmarinov          #+#    #+#             */
-/*   Updated: 2024/09/04 18:28:28 by mmarinov         ###   ########.fr       */
+/*   Updated: 2024/09/05 14:17:40 by mmarinov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ char	*ft_strchr(const char *str, int c)
 	while (*str)
 	{
 		if (*str == (char)c)
-			return ((char *)tr);
+			return ((char *)str);
 		str++;
 	}
 	if (c == '\0')
@@ -72,7 +72,7 @@ char	*ft_strdup(const char *s)
 {
 	char	*dup;
 	size_t	len;
-	size_t	j;
+	size_t	i;
 
 	if (!s)
 		return (NULL);
@@ -95,14 +95,10 @@ char	*ft_strndup(const char *s, size_t n)
 	char	*dup;
 	size_t	i;
 
-	if (!s)
-		return (NULL);
-	i = 0;
-	while (s[i] && i < n)
-		i++;
-	dup = (char *)malloc(i + 1);
+	dup = (char *)malloc(n + 1);
 	if (!dup)
 		return (NULL);
+	i = 0;
 	while (i < n && s[i])
 	{
 		dup[i] = s[i];
