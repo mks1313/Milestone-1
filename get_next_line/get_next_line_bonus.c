@@ -6,7 +6,7 @@
 /*   By: mmarinov <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/07 11:32:17 by mmarinov          #+#    #+#             */
-/*   Updated: 2024/09/07 16:51:17 by mmarinov         ###   ########.fr       */
+/*   Updated: 2024/09/10 14:28:49 by mmarinov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ static char	*extract_line(char **buffer)
 	char	*line;
 	char	*new_buffer;
 
-	if (!buffer)
+	if (!buffer || !*buffer)
 		return (NULL);
 	i = 0;
 	while ((*buffer)[i] && (*buffer)[i] != '\n')
@@ -39,9 +39,15 @@ static char	*extract_line(char **buffer)
 		return (NULL);
 	new_buffer = ft_strdup(*buffer + i);
 	free_memory(buffer);
+	if (!new_buffer)
+	{
+		free(line);
+		return (NULL);
+	}
 	*buffer = new_buffer;
-	if (!*buffer || **buffer)
+/*	if (*buffer && **buffer == '\0')
 		free_memory(buffer);
+		*/
 	return (line);
 }
 
@@ -52,26 +58,38 @@ static int	read_from_file(int fd, char **buffer)
 	ssize_t	bytes_read;
 
 	read_buf = malloc((BUFFER_SIZE + 1) * sizeof(char));
+	if (!read_buf)
+		return (-1);
 	bytes_read = read(fd, read_buf, BUFFER_SIZE);
 	if (bytes_read < 0)
 	{
-		free_memory(buffer);
-		return (free(read_buf), bytes_read);
+		free(read_buf);
+		return (-1);
 	}
 	if (bytes_read == 0)
-		return (free(read_buf), bytes_read);
+	{
+		free(read_buf);
+		return (0);
+
+	}
 	read_buf[bytes_read] = '\0';
 	if (*buffer)
 	{
 		temp = ft_strjoin(*buffer, read_buf);
+		free(read_buf);
 		if (!temp)
-			return (free_memory(buffer), free(read_buf), -1);
+			return (-1);
 		free_memory(buffer);
 		*buffer = temp;
 	}
 	else
+	{
 		*buffer = ft_strdup(read_buf);
-	return (free(read_buf), bytes_read);
+		free(read_buf);
+		if (!*buffer)
+			return (-1);
+	}
+	return (bytes_read);
 }
 
 char	*get_next_line(int fd)
@@ -81,20 +99,17 @@ char	*get_next_line(int fd)
 	ssize_t		b_read;
 
 	b_read = 1;
-	if (fd < 0 || BUFFER_SIZE <= 0)
-		return (free_memory(&buffer[fd]), NULL);
-	while (1)
+	if (fd < 0 || BUFFER_SIZE <= 0 || fd >= MAX_FILES)
+		return (NULL);
+	if (!buffer[fd])
+		buffer[fd] = ft_strdup("");
+	while (buffer[fd] && !ft_strchr(buffer[fd], '\n'))
 	{
-		if (!buffer[fd] || !ft_strchr(buffer[fd], '\n'))
-		{
-			b_read = read_from_file(fd, &buffer[fd]);
-			if (b_read <= 0)
-				break ;
-		}
-		else
-			break ;
+		b_read = read_from_file(fd, &buffer[fd]);
+		if (b_read <= 0)
+			return (free_memory(&buffer[fd]), NULL);
 	}
-	if ((b_read == 0 && (!buffer[fd] || *buffer[fd] == '\0')) || b_read < 0)
+	if (b_read == 0 && (!buffer[fd] || *buffer[fd] == '\0'))
 	{
 		free_memory(&buffer[fd]);
 		return (NULL);
