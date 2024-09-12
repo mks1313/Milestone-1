@@ -40,7 +40,7 @@ Thank you for visiting my profile and following my progress in programming!
 
 ---
 
-**Note:** This README will be updated as I progress through my projects and achieve new milestones.
+
 
 
 
