@@ -29,7 +29,7 @@ Implementation of a print formatting function similar to `printf` to practice st
 - **Programming Languages:** C, and soon C++
 - **Additional Skills:** Project management, development of custom functions, and system administration
 
-👤 Author
+👤 Author:
 Maksim Georgiev Marinov - [mks1313](https://github.com/mks1313)
 
 📧 Contact
@@ -49,9 +49,11 @@ Maksim Georgiev Marinov - [mks1313](https://github.com/mks1313)
   </a>
 
 </div>
-
+---
 
 Feel free to reach out if you have any questions or feedback.
+
+---
 
 Thank you for visiting my profile and following my progress in programming!
 
