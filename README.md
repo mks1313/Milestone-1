@@ -50,10 +50,11 @@ Maksim Georgiev Marinov - [mks1313](https://github.com/mks1313)
 
 </div>
 
+---
 
-## Feel free to reach out if you have any questions or feedback.
+Feel free to reach out if you have any questions or feedback.
 
-
+---
 
 ## Thank you for visiting my profile and following my progress in programming!
 
