@@ -2,24 +2,19 @@
 
 Welcome to my repository at Campus 42 Barcelona! This is where I store my projects and exercises as I learn C and, in the future, C++. Each project represents a significant step in my programming journey.
 
-## Current Projects
+##  Projects
 
-### 1. **Libft**
-Implementation of the C standard library to strengthen my skills with fundamental functions.
-
-![Libft Badge](https://github.com/ayogun/42-project-badges/blob/main/badges/libftm.png)
-
-### 2. **Get Next Line**
+### 1. **Get Next Line**
 Development of a function to read a line from a file or standard input, line by line, until the end.
 
 ![Get Next Line Badge](https://github.com/ayogun/42-project-badges/blob/main/badges/get_next_linem.png)
 
-### 3. **Born2beroot**
+### 2. **Born2beroot**
 Setting up a server environment from scratch and handling system management to understand Linux system administration.
 
 ![Born2beroot Badge](https://github.com/ayogun/42-project-badges/blob/main/badges/born2berootm.png)
 
-### 4. **Ft_printf**
+### 3. **Ft_printf**
 Implementation of a print formatting function similar to `printf` to practice string handling and output formatting.
 
 ![Ft_printfe Badge](https://github.com/ayogun/42-project-badges/blob/main/badges/ft_printfe.png)
