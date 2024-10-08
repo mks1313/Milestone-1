@@ -6,13 +6,13 @@
 /*   By: mmarinov <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/07 11:32:17 by mmarinov          #+#    #+#             */
-/*   Updated: 2024/09/10 14:28:49 by mmarinov         ###   ########.fr       */
+/*   Updated: 2024/10/08 16:18:53 by mmarinov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line_bonus.h"
 
-static void	free_memory(char **ptr)
+static void	free_memory_bonus(char **ptr)
 {
 	if (ptr && *ptr)
 	{
@@ -21,7 +21,7 @@ static void	free_memory(char **ptr)
 	}
 }
 
-static char	*extract_line(char **buffer)
+static char	*extract_line_bonus(char **buffer)
 {
 	size_t	i;
 	char	*line;
@@ -34,11 +34,11 @@ static char	*extract_line(char **buffer)
 		i++;
 	if ((*buffer)[i] == '\n')
 		i++;
-	line = ft_strndup(*buffer, i);
+	line = ft_strndup_bonus(*buffer, i);
 	if (!line)
 		return (NULL);
-	new_buffer = ft_strdup(*buffer + i);
-	free_memory(buffer);
+	new_buffer = ft_strdup_bonus(*buffer + i);
+	free_memory_bonus(buffer);
 	if (!new_buffer)
 	{
 		free(line);
@@ -51,7 +51,7 @@ static char	*extract_line(char **buffer)
 	return (line);
 }
 
-static int	read_from_file(int fd, char **buffer)
+static int	read_from_file_bonus(int fd, char **buffer)
 {
 	char	*read_buf;
 	char	*temp;
@@ -75,16 +75,16 @@ static int	read_from_file(int fd, char **buffer)
 	read_buf[bytes_read] = '\0';
 	if (*buffer)
 	{
-		temp = ft_strjoin(*buffer, read_buf);
+		temp = ft_strjoin_bonus(*buffer, read_buf);
 		free(read_buf);
 		if (!temp)
 			return (-1);
-		free_memory(buffer);
+		free_memory_bonus(buffer);
 		*buffer = temp;
 	}
 	else
 	{
-		*buffer = ft_strdup(read_buf);
+		*buffer = ft_strdup_bonus(read_buf);
 		free(read_buf);
 		if (!*buffer)
 			return (-1);
@@ -92,28 +92,28 @@ static int	read_from_file(int fd, char **buffer)
 	return (bytes_read);
 }
 
-char	*get_next_line(int fd)
+char	*get_next_line_bonus(int fd)
 {
 	char		*line;
 	static char	*buffer[MAX_FILES];
 	ssize_t		b_read;
 
 	b_read = 1;
-	if (fd < 0 || BUFFER_SIZE <= 0 || fd >= MAX_FILES)
+	if (fd < 0 || BUFFER_SIZE <= 0 || fd >= 2147483647)
 		return (NULL);
 	if (!buffer[fd])
-		buffer[fd] = ft_strdup("");
-	while (buffer[fd] && !ft_strchr(buffer[fd], '\n'))
+		buffer[fd] = ft_strdup_bonus("");
+	while (buffer[fd] && !ft_strchr_bonus(buffer[fd], '\n'))
 	{
-		b_read = read_from_file(fd, &buffer[fd]);
+		b_read = read_from_file_bonus(fd, &buffer[fd]);
 		if (b_read <= 0)
-			return (free_memory(&buffer[fd]), NULL);
+			return (free_memory_bonus(&buffer[fd]), NULL);
 	}
 	if (b_read == 0 && (!buffer[fd] || *buffer[fd] == '\0'))
 	{
-		free_memory(&buffer[fd]);
+		free_memory_bonus(&buffer[fd]);
 		return (NULL);
 	}
-	line = extract_line(&buffer[fd]);
+	line = extract_line_bonus(&buffer[fd]);
 	return (line);
 }

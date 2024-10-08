@@ -6,7 +6,7 @@
 /*   By: mmarinov <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/07 16:30:44 by mmarinov          #+#    #+#             */
-/*   Updated: 2024/09/07 16:31:43 by mmarinov         ###   ########.fr       */
+/*   Updated: 2024/10/08 16:20:05 by mmarinov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void	process_files(int num_files, int fds[], char *filenam[], int line_num[])
 	i = 0;
 	while (num_files > 0)
 	{
-		line = get_next_line(fds[i]);
+		line = get_next_line_bonus(fds[i]);
 		if (line == NULL)
 		{
 			if (fds[i] != 0)
