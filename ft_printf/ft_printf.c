@@ -6,11 +6,10 @@
 /*   By: mmarinov <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/20 13:13:11 by mmarinov          #+#    #+#             */
-/*   Updated: 2024/08/07 13:57:59 by mmarinov         ###   ########.fr       */
+/*   Updated: 2024/10/08 15:48:11 by mmarinov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft/libft.h"
 #include "ft_printf.h"
 #include <stdio.h>
 

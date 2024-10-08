@@ -6,11 +6,10 @@
 /*   By: mmarinov <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/20 13:14:57 by mmarinov          #+#    #+#             */
-/*   Updated: 2024/08/06 18:39:44 by mmarinov         ###   ########.fr       */
+/*   Updated: 2024/10/08 15:48:37 by mmarinov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft/libft.h"
 #include "ft_printf.h"
 
 int	ft_print_int(int n)
