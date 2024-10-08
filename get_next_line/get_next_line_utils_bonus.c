@@ -6,13 +6,13 @@
 /*   By: mmarinov <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/07 11:33:54 by mmarinov          #+#    #+#             */
-/*   Updated: 2024/09/10 12:39:54 by mmarinov         ###   ########.fr       */
+/*   Updated: 2024/10/08 16:20:38 by mmarinov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line_bonus.h"
 
-char	*ft_strjoin(char const *s1, char const *s2)
+char	*ft_strjoin_bonus(char const *s1, char const *s2)
 {
 	char	*result;
 	size_t	i;
@@ -20,7 +20,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 
 	if (!s1 || !s2)
 		return (NULL);
-	result = (char *)malloc(ft_strlen(s1) + ft_strlen(s2) + 1);
+	result = (char *)malloc(ft_strlen_bonus(s1) + ft_strlen_bonus(s2) + 1);
 	if (!result)
 		return (NULL);
 	i = 0;
@@ -39,7 +39,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	return (result);
 }
 
-size_t	ft_strlen(const char *s)
+size_t	ft_strlen_bonus(const char *s)
 {
 	size_t	length;
 
@@ -51,7 +51,7 @@ size_t	ft_strlen(const char *s)
 	return (length);
 }
 
-char	*ft_strchr(const char *str, int c)
+char	*ft_strchr_bonus(const char *str, int c)
 {
 	if (!str)
 		return (NULL);
@@ -66,7 +66,7 @@ char	*ft_strchr(const char *str, int c)
 	return (NULL);
 }
 
-char	*ft_strdup(const char *s)
+char	*ft_strdup_bonus(const char *s)
 {
 	char	*dup;
 	size_t	len;
@@ -74,7 +74,7 @@ char	*ft_strdup(const char *s)
 
 	if (!s)
 		return (NULL);
-	len = ft_strlen(s);
+	len = ft_strlen_bonus(s);
 	dup = (char *)malloc(len + 1);
 	if (!dup)
 		return (NULL);
@@ -88,7 +88,7 @@ char	*ft_strdup(const char *s)
 	return (dup);
 }
 
-char	*ft_strndup(const char *s, size_t n)
+char	*ft_strndup_bonus(const char *s, size_t n)
 {
 	char	*dup;
 	size_t	i;
