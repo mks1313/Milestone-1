@@ -6,7 +6,7 @@
 #    By: mmarinov <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/18 15:46:56 by mmarinov          #+#    #+#              #
-#    Updated: 2024/10/08 15:46:40 by mmarinov         ###   ########.fr        #
+#    Updated: 2024/10/08 16:03:16 by mmarinov         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ SRC = ft_printf.c utils_csp.c utils_diuxx.c
 OBJ = $(SRC:.c=.o)
 
 # Directorio y archivo de la biblioteca libft
-LIBFT_DIR = ../ft_libft
+LIBFT_DIR = ft_libft
 LIBFT = $(LIBFT_DIR)/libft.a
 
 INCLUDE = ft_printf.h
@@ -42,8 +42,8 @@ $(LIBFT):
 
 # Crear la biblioteca libftprintf.a
 $(NAME): $(OBJ)
-	@make -C ../ft_libft
-	@cp ../ft_libft/libft.a .
+	@make -C ft_libft
+	@cp ft_libft/libft.a .
 	@mv libft.a $(NAME)
 	@ar -r $(NAME) $(OBJ)
 

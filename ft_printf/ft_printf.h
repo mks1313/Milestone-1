@@ -6,14 +6,14 @@
 /*   By: mmarinov <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/20 15:20:50 by mmarinov          #+#    #+#             */
-/*   Updated: 2024/10/08 15:47:59 by mmarinov         ###   ########.fr       */
+/*   Updated: 2024/10/08 16:02:35 by mmarinov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
 
-# include "../ft_libft/libft.h"
+# include "ft_libft/libft.h"
 # include <unistd.h>
 # include <stdarg.h>
 # include <stdlib.h>

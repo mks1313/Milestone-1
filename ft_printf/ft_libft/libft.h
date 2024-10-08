@@ -6,7 +6,7 @@
 /*   By: mmarinov <mmarinov@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/19 13:11:11 by mmarinov          #+#    #+#             */
-/*   Updated: 2024/09/13 15:07:56 by mmarinov         ###   ########.fr       */
+/*   Updated: 2024/10/08 15:59:39 by mmarinov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,19 +72,5 @@ void	ft_lstclear(t_list **lst, void (*del)(void *));
 void	ft_lstiter(t_list *lst, void (*f)(void *));
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 char	*ft_utoa(unsigned int n);
-//now ft_printf
-int		ft_printf(char const *s, ...);
-int		ft_check_char(va_list *args, char c);
-int		ft_print_char(char c);
-int		ft_print_str(char *s);
-void	ft_putnum_hex(unsigned long num, int uppercase);
-int		ft_print_ptr(void *p);
-int		ft_ptrlen(unsigned long long num);
-int		ft_print_int(int n);
-int		ft_print_unsigned(unsigned int n);
-int		ft_print_lower_hex(unsigned int n);
-int		ft_print_upper_hex(unsigned int n);
-// now get_next_line
-char	*get_next_line(int fd);
-char	*ft_strndup(const char *s, size_t n);
+
 #endif
