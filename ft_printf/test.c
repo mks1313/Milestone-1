@@ -6,7 +6,7 @@
 /*   By: mmarinov <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/09 13:41:16 by mmarinov          #+#    #+#             */
-/*   Updated: 2024/08/09 13:45:13 by mmarinov         ###   ########.fr       */
+/*   Updated: 2026/04/16 20:10:45 by mmarinov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,8 @@ int main(void)
 	int		total_verdadero;
 	int		value;
 	char	letter;
-	double decimal;
+	char	*null_str = NULL;
+	//double decimal;
 	// Pruebas básicas de caracteres
 	
 	// checkear printf %% NO FTPRINTF
@@ -185,7 +186,7 @@ int main(void)
 	ft_printf("Probando NULL con s:\n");
 	total_format = ft_printf("Hola %s\n", (char *)NULL);
 	ft_printf("El size es: %d\n", total_format);
-	total_verdadero = printf("Hola %s\n", (char *)NULL);
+	total_verdadero = printf("Hola %s\n", null_str);
 	printf("El size verdadero es: %d\n\n", total_verdadero);
 	
 	/*/ Pruebas de precisión
